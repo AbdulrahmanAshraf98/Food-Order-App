@@ -3,14 +3,26 @@
     width: 90%;
     margin: 2rem auto;
     animation: meals-appear 1s ease-out forwards;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
   }
-  
+  .meals .mealsCard{
+    width: 90%;
+  }
   .meals ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  
+  .mealsLoading{
+    color:#fff;
+  }
+  .mealsError{
+
+    color:red;
+  }
   @keyframes meals-appear {
     from {
       opacity: 0;

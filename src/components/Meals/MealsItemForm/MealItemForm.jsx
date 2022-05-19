@@ -20,6 +20,7 @@ const MealItemForm = ({ addItem }) => {
 	return (
 		<form className={styles.form} onSubmit={onSubmitHandler}>
 			<Input
+				className={styles.input}
 				label="Amount"
 				id="amount"
 				type="number"
