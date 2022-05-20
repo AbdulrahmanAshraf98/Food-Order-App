@@ -17,12 +17,16 @@ const CartProvider = ({ children }) => {
 	const removeItemHandler = (id) => {
 		dispatchCartAction({ type: "REMOVE-ITEM", payload: id });
 	};
+	const clearItemsHandler = () => {
+		dispatchCartAction({ type: "CLEAR-ITEMS" });
+	};
 
 	const cartContext = {
 		items: cartState.items,
 		totalAmount: cartState.totalAmount,
 		addItem: addItemHandler,
 		removeItem: removeItemHandler,
+		clearItems: clearItemsHandler,
 	};
 	return (
 		<CartContext.Provider value={cartContext}>{children}</CartContext.Provider>

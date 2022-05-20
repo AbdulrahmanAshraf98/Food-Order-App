@@ -29,6 +29,7 @@ const Cart = ({ CartToggleHandler }) => {
 
 		setIsSubmitting(false);
 		setDidSubmitting(true);
+		cartContext.clearItems();
 	};
 
 	const cartModal = (

@@ -30,16 +30,17 @@ const cartReducer = (state, action) => {
 				(item) => item.id === action.payload,
 			);
 			const existingCartItem = state.items[existingCartItemIndex];
-			const NewTotalAmount = Math.abs(state.totalAmount - existingCartItem.price);
+			const NewTotalAmount = Math.abs(
+				state.totalAmount - existingCartItem.price,
+			);
 			const newCartItem = state.items.filter((item) => {
 				return item.id !== action.payload;
 			});
 			let newCartItems;
-			
+
 			if (existingCartItem.totalAmount === 1) {
 				newCartItems = state.items.filter((item) => item.id !== action.payload);
 			} else {
-				
 				let updateItem = {
 					...existingCartItem,
 					totalAmount: existingCartItem.totalAmount - 1,
@@ -52,6 +53,13 @@ const cartReducer = (state, action) => {
 				totalAmount: NewTotalAmount,
 			};
 		}
+		case "CLEAR-ITEMS": {
+			return {
+				items: [],
+				totalAmount: 0,
+			};
+		}
+
 		default: {
 			console.log("s");
 		}
